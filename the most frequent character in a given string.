@@ -1,0 +1,30 @@
+object MostFrequentCharacter { 
+  def main(args: Array[String]): Unit = { 
+    println("Enter a string:") 
+    val input = scala.io.StdIn.readLine() 
+ 
+    // Find the most frequent character 
+    val result = findMostFrequentCharacter(input) 
+     
+    result match { 
+      case Some(char) => println(s"The most frequent character is: '$char'") 
+      case None => println("The string is empty or contains only whitespace.") 
+    } 
+  }
+ def findMostFrequentCharacter(input: String): Option[Char] = { 
+    if (input.trim.isEmpty) return None 
+ 
+    // Use a Map to count occurrences of each character 
+    val counts = scala.collection.mutable.Map[Char, Int]().withDefaultValue(0) 
+ 
+    // Count occurrences of each character 
+    for (char <- input) { 
+      counts(char) += 1 
+    } 
+ 
+    // Find the character with the maximum count
+   val mostFrequentChar = counts.maxBy(_._2)._1 
+ 
+    Some(mostFrequentChar) 
+  } 
+} 
