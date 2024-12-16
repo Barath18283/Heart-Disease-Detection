@@ -1,0 +1,16 @@
+object EvenOddChecker { 
+  def main(args: Array[String]): Unit = { 
+    println("Enter a number:") 
+    val number = scala.io.StdIn.readInt() 
+ 
+    if (isEven(number)) { 
+      println(s"$number is even.") 
+    } else { 
+      println(s"$number is odd.") 
+ } 
+  } 
+
+  def isEven(number: Int): Boolean = { 
+    number % 2 == 0 
+  } 
+} 
